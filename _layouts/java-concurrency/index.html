@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MarkdownPad Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<p>原文链接：<a href="http://tutorials.jenkov.com/java-concurrency/index.html">http://tutorials.jenkov.com/java-concurrency/index.html</a></p>
+<p>内容列表</p>
+<ul>
+<li><a href="#h21">Java 中的多线程和并发</a></li>
+<li><a href="#h22">Java 并发 2015 和展望</a></li>
+</ul>
+<p>最开始的计算机只有一个 CPU ，一次也只能执行一个程序。后来，出现了多任务操作系统，在宏观上能同时执行多个程序。实际上，在同一时刻只能执行一个程序，多个程序共享一个 CPU 。操作系统负责这些程序之间的切换过程，所有的程序将会轮流运行。</p>
+<p>随着多任务操作系统的出现，软件开发者遇到了新的挑战。程序不再单独占有 CPU 时间、内存和其他计算机资源。一个好的程序应该释放它不再使用的所有资源，这样一来其他程序可以继续使用这些资源。</p>
+<p>再后来，出现了多线程程序。在一个程序中，可以执行多个线程。一个线程的执行可以想象成是一个 CPU 执行一个程序。一个程序中有多个线程在执行就像是有多个 CPU 在执行同一个程序一样。</p>
+<p>多线程是增加程序性能的一种很好的方式。然而，多线程比多任务更具有挑战性。多个线程在执行同一个程序，他们很可能会同时读或写同一块内存区域。这样一来会导致单线程下不会出现的问题。有些问题可能在单个 CPU 环境下也不会出现，毕竟多个线程不能并行运行。现代计算机，已经出现了多核 CPU 甚至是多 CPUs。这意味着独立的线程可以被独立的核心或者是独立的 CPU 同时执行。
+<img src="http://img.blog.csdn.net/20150518142651807" alt="这里写图片描述" />
+如果一个线程正在读一块内存区域的同时另外一个线程正在往这块内存区域写值，那么这个读线程最终读到的值到底是什么？旧的值？被写线程写入后的值？还是旧的值和被写后的一个混合结果？或者是两个线程往同一块内存区域写值，那么最终被写入内存的结果是什么？被第一个线程写入的值？被第二个线程写入的值？或者是两种值的一个混合结果？ </p>
+<p>如果没有合适的预防措施，上述的任何一种结果都是可能发生的。多线程的行为甚至是不可预测的。同一个多线程程序多次运行，可能每次运行结果都不同。作为一个程序开发者，知道怎样采取正确的预防措施（意味着学习控制线程怎样来访问共享的资源，比如内存、文件、数据库等，这也是 Java 并发教程要处理的一个主题）是非常重要的。</p>
+<h2><span id="h21">Java 中的多线程和并发</span></h2>
+<p>Java 是最早支持多线程的语言之一，它使得软件开发者开发并发程序更容易。 Java 在设计之初就支持多线程，因此， Java 开发者经常会面对我们刚才在上面描述的那些问题。这也是我编写 Java 并发教程系列的原因，作为自己的一个笔记的同时也希望能帮助到更多的 Java 开发者。</p>
+<p>这个系列会主要集中在 Java 多线程上面，但在多线程中出现的一些问题和在多任务、分布式系统出现的问题很相似。所以，这个系列也会涉及一些多任务和分布式系统，因此强调是并发而不是多线程（解释一下，多线程一定是并发执行，但并发执行的不一定是多线程，也有可能是多任务和分布式系统）。 </p>
+<h2><span id="h22">Java 并发 2015 和展望 </span></h2>
+<p>自从第一批 Java 并发书籍出现以后，甚至是 Java 5 并发工具发布以后，在并发架构和设计领域里发生了巨大的变化。 </p>
+<p>现在，异步“非共享”平台和 APIs 比如 Vert.x 和 Play / Akka 和 Qbit 已经出现了。这些平台采用的并发模型和标准的 Java / JEE 并发模型并不相同。标准的 Java / JEE 并发模型采用了线程、共享内存和锁。新的非阻塞并发算法已经发布了，而且新的非阻塞工具比如 LMax Disrupter 已经添加到我们的工具包中。新功能并发技术已经在 Java 7 中的 Fork 和 Join 框架中引进了， collection streams API 也已经在 Java 8 中引进了。 </p>
+<p>随着这些新技术的开发，我会一直更新我的 Java 并发教程了。因此，这个教程会一再更新。一有时间我就会更新、发布新的教程。</p>
+<p><a href="http://blog.csdn.net/shfqbluestone/article/details/45825269">Next: 多线程的优势</a> </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

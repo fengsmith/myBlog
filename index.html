@@ -1,59 +1,1703 @@
 <!DOCTYPE html>
 <html lang="cn-zh">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>动态平衡系统</title>
+    
     <style>
-        h1,h2,h3,h4,h5,h6 {
-            text-align: center;
-            background-color: #ff9800 !important;
-        }
-        body {
-            /* background-color: #fcf3e2; */
-            /*color: white;*/
-        }
-        p {
+    /* W3.CSS 1.42 by J.E.Refsnes. Do not remove this line. */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+/* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block
+}
+
+audio, canvas, video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden], template {
+    display: none
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
+    background-color: transparent
+}
+
+a:active, a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b, strong {
+    font-weight: bold
+}
+
+dfn {
+    font-style: italic
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -0.5em
+}
+
+sub {
+    bottom: -0.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box
+}
+
+pre {
+    overflow: auto
+}
+
+code, kbd, pre, samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button, select {
+    text-transform: none
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled], html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type=checkbox], input[type=radio] {
+    padding: 0
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type=search] {
+    box-sizing: content-box;
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box
+}
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: bold
+}
+
+/* End extract from normalize.css */
+html, body {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+    font-weight: 400;
+    margin: 10px 0
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight: inherit
+}
+
+h1 {
+    font-size: 36px
+}
+
+h2 {
+    font-size: 30px
+}
+
+h3 {
+    font-size: 24px
+}
+
+h4 {
+    font-size: 20px
+}
+
+h5 {
+    font-size: 18px
+}
+
+h6 {
+    font-size: 16px
+}
+
+hr {
+    height: 0;
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 16px 0
+}
+
+img {
+    margin-bottom: -5px
+}
+
+a {
+    color: inherit
+}
+
+/* TABLES */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table
+}
+
+table, th, td {
+    border: none
+}
+
+table.w3-bordered tr {
+    border-bottom: 1px solid #d0d0d0
+}
+
+table.w3-striped tbody tr:nth-child(odd) {
+    background-color: #f2f2f2
+}
+
+table.w3-hoverable tbody tr {
+    transition: background-color .25s ease
+}
+
+table.w3-hoverable tbody tr:hover {
+    background-color: #f2f2f2
+}
+
+table.w3-centered tr th, table.w3-centered tr td {
+    text-align: center
+}
+
+thead.w3-bordered {
+    border-bottom: 1px solid #d0d0d0
+}
+
+table.w3-table td, th {
+    padding: 6px 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top
+}
+
+table.w3-table th:first-child, table.w3-table td:first-child {
+    padding-left: 16px
+}
+
+/* BUTTONS */
+.w3-btn {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 8px 16px;
+    vertical-align: middle;
+    text-decoration: none !important;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    transition: .2s ease-out;
+    cursor: pointer
+}
+
+.w3-btn.w3-disabled, .w3-btn-floating.w3-disabled, .w3-btn:disabled, .w3-btn-floating:disabled, .w3-btn-floating-large.w3-disabled, .w3-btn-floating-large:disabled {
+    background-color: #DFDFDF;
+    box-shadow: none;
+    color: #9F9F9F;
+    cursor: not-allowed
+}
+
+.w3-btn.w3-disabled *, .w3-btn-floating.w3-disabled *, .w3-btn:disabled *, .w3-btn-floating:disabled * {
+    pointer-events: none
+}
+
+.w3-btn.w3-disabled:hover, .w3-btn-floating.w3-disabled:hover, .w3-btn:disabled:hover, .w3-btn-floating:disabled:hover {
+    background-color: #DFDFDF !important;
+    color: #9F9F9F !important
+}
+
+.w3-btn:hover, .w3-btn-floating:hover, .w3-btn-floating i:hover, .w3-btn-floating-large:hover, .w3-btn-floating-large i:hover {
+    opacity: 0.7 !important
+}
+
+.w3-btn-floating, .w3-btn-floating-large {
+    display: inline-block;
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer
+}
+
+.w3-btn-floating-large {
+    width: 56px;
+    height: 56px;
+    line-height: 56px
+}
+
+.w3-btn-floating i, .w3-btn-floating-large i {
+    font-style: normal;
+    width: inherit;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    position: relative;
+    top: -1px
+}
+
+.w3-btn-floating i.material-icons {
+    top: 6px
+}
+
+.w3-btn-floating-large i.material-icons {
+    font-size: 36px;
+    top: 10px
+}
+
+.w3-btn-floating i.fa {
+    top: 3px
+}
+
+.w3-btn-floating-large i.fa {
+    top: 4px
+}
+
+.w3-btn-floating:before {
+    border-radius: 0
+}
+
+/* BADGES */
+.w3-badge, .w3-tag {
+    display: inline-block;
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: bold;
+    text-align: center
+}
+
+.w3-badge {
+    border-radius: 12px
+}
+
+/* BLOCKQUOTE */
+.w3-blockquote {
+    margin: 0;
+    padding-left: 16px;
+    border-left: 5px solid #ddd;
+    font-style: italic
+}
+
+/* LISTS */
+ul.w3-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul.w3-ul li {
+    padding: 6px 16px;
+    border-bottom: 1px solid #e0e0e0
+}
+
+ul.w3-ul li:last-child {
+    border-bottom: none
+}
+
+/* IMAGES */
+.w3-image {
+    position: relative
+}
+
+.w3-image img {
+    max-width: 100%;
+    height: auto
+}
+
+.w3-image .w3-title {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    color: #fff;
+    font-size: 20px
+}
+
+/* TOOLTIP */
+.w3-tooltip .w3-text {
+    display: none
+}
+
+.w3-tooltip:hover .w3-text {
+    display: inline-block
+}
+
+/* NAVIGATION */
+.w3-topnav {
+    padding: 8px 8px
+}
+
+.w3-topnav a, .w3-sidenav a, .w3-dropnav a {
+    text-decoration: none !important
+}
+
+.w3-topnav a {
+    padding: 0 8px;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.w3-topnav a:hover {
+    border-bottom: 3px solid #fff
+}
+
+.w3-sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    overflow: auto
+}
+
+.w3-opennav, .w3-closenav {
+    color: inherit
+}
+
+.w3-opennav:hover, .w3-closenav:hover {
+    cursor: pointer;
+    opacity: 0.8
+}
+
+.w3-sidenav a {
+    padding: 4px 16px
+}
+
+.w3-sidenav a:hover, .w3-sidenav a:focus {
+    background-color: #ccc
+}
+
+.w3-sidenav a, .w3-dropnav a {
+    display: block;
+    transition: .3s
+}
+
+.w3-dropnav a:hover {
+    text-decoration: underline !important
+}
+
+/* TAB */
+.w3-tab div {
+    display: none
+}
+
+.w3-tab div:target {
+    display: block
+}
+
+/* MODAL */
+.w3-modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4)
+}
+
+.w3-modal:target {
+    display: table;
+    position: absolute;
+    overflow: scroll;
+    z-index: 1
+}
+
+.w3-modal-dialog {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.w3-modal-dialog .w3-modal-content {
+    margin: auto;
+    background-color: #f3f3f3;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    border: 1px #555 solid;
+    width: 600px
+}
+
+.w3-closebtn {
+    text-decoration: none;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: inherit
+}
+
+.w3-closebtn:hover, .w3-closebtn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer
+}
+
+/* FORMS */
+.w3-group {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 30px
+}
+
+.w3-input, .w3-textarea {
+    padding: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #808080
+}
+
+.w3-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #009688;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all
+}
+
+.w3-input:focus ~ .w3-label, .w3-input:valid ~ .w3-label, .w3-textarea:focus ~ .w3-label, .w3-textarea:valid ~ .w3-label {
+    top: -20px;
+    font-size: 14px;
+    color: #888
+}
+
+.w3-checkbox:before, .w3-checkbox:after, .w3-checkbox, .w3-checkmark:before, .w3-checkmark:after, .w3-checkmark {
+    box-sizing: border-box
+}
+
+.w3-checkbox {
+    display: inline-block;
+    line-height: 24px;
+    margin: 8px 0
+}
+
+.w3-checkbox input[type=checkbox], .w3-checkbox input[type=radio] {
+    display: none
+}
+
+.w3-checkbox input[type=checkbox]:checked + .w3-checkmark:before {
+    background: #009688
+}
+
+.w3-checkbox input[type=checkbox]:checked + .w3-checkmark:after {
+    opacity: 1
+}
+
+.w3-checkbox input[type=radio]:checked + .w3-checkmark:before {
+    background: #fff
+}
+
+.w3-checkbox input[type=radio]:checked + .w3-checkmark:after {
+    opacity: 1;
+    background-color: #009688
+}
+
+.w3-checkmark:before {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #009688
+}
+
+.w3-checkmark {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+    width: 24px;
+    height: 24px
+}
+
+.w3-checkmark:after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    width: 14px;
+    height: 8px;
+    border: 4px solid #fff;
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg)
+}
+
+.w3-checkbox input[type=radio] + .w3-checkmark:before {
+    border-radius: 50%;
+    background-color: #fff
+}
+
+.w3-checkbox input[type=radio] + .w3-checkmark:after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 12px;
+    height: 12px;
+    border: 0 solid #fff;
+    border-radius: 50%
+}
+
+.w3-checkbox input[type=checkbox]:disabled + .w3-checkmark {
+    opacity: 0.3;
+    cursor: default
+}
+
+.w3-checkbox input[type=radio]:disabled + .w3-checkmark {
+    opacity: 0.3;
+    cursor: default
+}
+
+/* RESPONSIVE */
+.w3-responsive {
+    overflow-x: auto
+}
+
+.w3-container:after, .w3-row:after, .w3-row-padding:after, .w3-topnav:after {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.w3-col, .w3-half, .w3-third, .w3-twothird, .w3-quarter {
+    float: left;
+    width: 100%
+}
+
+.w3-col.s1 {
+    width: 8.33333%
+}
+
+.w3-col.s2 {
+    width: 16.66666%
+}
+
+.w3-col.s3 {
+    width: 24.99999%
+}
+
+.w3-col.s4 {
+    width: 33.33333%
+}
+
+.w3-col.s5 {
+    width: 41.66666%
+}
+
+.w3-col.s6 {
+    width: 49.99999%
+}
+
+.w3-col.s7 {
+    width: 58.33333%
+}
+
+.w3-col.s8 {
+    width: 66.66666%
+}
+
+.w3-col.s9 {
+    width: 74.99999%
+}
+
+.w3-col.s10 {
+    width: 83.33333%
+}
+
+.w3-col.s11 {
+    width: 91.66666%
+}
+
+.w3-col.s12, .w3-half, .w3-third, .w3-twothird, .w3-quarter {
+    width: 99.99999%
+}
+
+@media only screen and (min-width: 601px) {
+    .w3-col.m1 {
+        width: 8.33333%
+    }
+
+    .w3-col.m2 {
+        width: 16.66666%
+    }
+
+    .w3-col.m3, .w3-quarter {
+        width: 24.99999%
+    }
+
+    .w3-col.m4, .w3-third {
+        width: 33.33333%
+    }
+
+    .w3-col.m5 {
+        width: 41.66666%
+    }
+
+    .w3-col.m6, .w3-half {
+        width: 49.99999%
+    }
+
+    .w3-col.m7 {
+        width: 58.33333%
+    }
+
+    .w3-col.m8, .w3-twothird {
+        width: 66.66666%
+    }
+
+    .w3-col.m9 {
+        width: 74.99999%
+    }
+
+    .w3-col.m10 {
+        width: 83.33333%
+    }
+
+    .w3-col.m11 {
+        width: 91.66666%
+    }
+
+    .w3-col.m12 {
+        width: 99.99999%
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .w3-col.l1 {
+        width: 8.33333%
+    }
+
+    .w3-col.l2 {
+        width: 16.66666%
+    }
+
+    .w3-col.l3, .w3-quarter {
+        width: 24.99999%
+    }
+
+    .w3-col.l4, .w3-third {
+        width: 33.33333%
+    }
+
+    .w3-col.l5 {
+        width: 41.66666%
+    }
+
+    .w3-col.l6, .w3-half {
+        width: 49.99999%
+    }
+
+    .w3-col.l7 {
+        width: 58.33333%
+    }
+
+    .w3-col.l8, .w3-twothird {
+        width: 66.66666%
+    }
+
+    .w3-col.l9 {
+        width: 74.99999%
+    }
+
+    .w3-col.l10 {
+        width: 83.33333%
+    }
+
+    .w3-col.l11 {
+        width: 91.66666%
+    }
+
+    .w3-col.l12 {
+        width: 99.99999%
+    }
+}
+
+.w3-content {
+    max-width: 980px;
+    margin: auto
+}
+
+.w3-rest {
+    overflow: hidden
+}
+
+@media (max-width: 601px) {
+    .w3-modal-dialog .w3-modal-content {
+        margin: 50px 10px 10px 10px;
+        width: auto !important
+    }
+}
+
+@media (max-width: 768px) {
+    .w3-modal-dialog .w3-modal-content {
+        width: 500px
+    }
+}
+
+@media (min-width: 992px) {
+    .w3-modal-dialog .w3-modal-content {
+        width: 900px
+    }
+}
+
+@media screen and (max-width: 601px) {
+    .w3-topnav a {
+        display: block
+    }
+
+    .w3-topnav a:first-child {
+        padding: 0 8px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .w3-topnav {
+        text-align: center
+    }
+}
+
+@media (max-width: 600px) {
+    .w3-hide-small {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+    .w3-hide-medium {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .w3-hide-large {
+        display: none !important;
+    }
+}
+
+/* UTILITIES */
+.material-icons {
+    width: 24px;
+    position: relative;
+    top: 3px
+}
+
+.material-icons.w3-small {
+    width: 12px;
+    top: 1px;
+}
+
+.material-icons.w3-xlarge {
+    top: 4px
+}
+
+.material-icons.w3-xxlarge {
+    width: 36px;
+    top: 6px
+}
+
+.material-icons.w3-xxxlarge {
+    width: 48px;
+    top: 8px
+}
+
+.w3-left {
+    float: left !important
+}
+
+.w3-right {
+    float: right !important
+}
+
+.w3-clear {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.w3-hide {
+    display: none !important
+}
+
+.w3-show {
+    display: block !important
+}
+
+.w3-tiny {
+    font-size: 10px !important
+}
+
+.w3-small {
+    font-size: 12px !important
+}
+
+.w3-medium {
+    font-size: 15px !important
+}
+
+.w3-large {
+    font-size: 18px !important
+}
+
+.w3-xlarge {
+    font-size: 24px !important
+}
+
+.w3-xxlarge {
+    font-size: 36px !important
+}
+
+.w3-xxxlarge {
+    font-size: 48px !important
+}
+
+.w3-stroke {
+    font-family: 'Courgette';
+    -webkit-text-stroke: 1px #000;
+    letter-spacing: 2px
+}
+
+.w3-jumbo {
+    font-size: 64px !important
+}
+
+.w3-left-align {
+    text-align: left !important
+}
+
+.w3-right-align {
+    text-align: right !important
+}
+
+.w3-center {
+    text-align: center !important
+}
+
+.w3-circle {
+    border-radius: 50% !important
+}
+
+.w3-border-0 {
+    border: 0 !important
+}
+
+.w3-border {
+    border: 1px solid #ccc !important
+}
+
+.w3-border-top {
+    border-top: 1px solid #ccc !important
+}
+
+.w3-border-bottom {
+    border-bottom: 1px solid #ccc !important
+}
+
+.w3-border-left {
+    border-left: 1px solid #ccc !important
+}
+
+.w3-border-right {
+    border-right: 1px solid #ccc !important
+}
+
+.w3-margin-0 {
+    margin: 0 !important
+}
+
+.w3-margin-2 {
+    margin: 2px !important
+}
+
+.w3-margin-4 {
+    margin: 4px !important
+}
+
+.w3-margin-8 {
+    margin: 8px !important
+}
+
+.w3-margin-12 {
+    margin: 12px !important
+}
+
+.w3-margin-16 {
+    margin: 16px !important
+}
+
+.w3-margin-24 {
+    margin: 24px !important
+}
+
+.w3-margin-32 {
+    margin: 32px !important
+}
+
+.w3-margin-64 {
+    margin: 64px !important
+}
+
+.w3-margin {
+    margin: 16px !important
+}
+
+.w3-margin-top {
+    margin-top: 16px !important
+}
+
+.w3-margin-bottom {
+    margin-bottom: 16px !important
+}
+
+.w3-margin-left {
+    margin-left: 16px !important
+}
+
+.w3-margin-right {
+    margin-right: 16px !important
+}
+
+.w3-padding-tiny {
+    padding: 2px 4px !important
+}
+
+.w3-padding-small {
+    padding: 4px 8px !important
+}
+
+.w3-padding-medium, .w3-padding {
+    padding: 8px 16px !important
+}
+
+.w3-padding-large {
+    padding: 12px 24px !important
+}
+
+.w3-padding-xlarge {
+    padding: 16px 32px !important
+}
+
+.w3-padding-xxlarge {
+    padding: 24px 48px !important
+}
+
+.w3-padding-jumbo {
+    padding: 32px 64px !important
+}
+
+.w3-padding-0 {
+    padding: 0 !important
+}
+
+.w3-padding-4 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important
+}
+
+.w3-padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important
+}
+
+.w3-padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+
+.w3-padding-24 {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important
+}
+
+.w3-padding-32 {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important
+}
+
+.w3-padding-48 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important
+}
+
+.w3-padding-64 {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important
+}
+
+.w3-padding-top {
+    padding-top: 8px !important
+}
+
+.w3-padding-bottom {
+    padding-bottom: 8px !important
+}
+
+.w3-padding-left {
+    padding-left: 16px !important
+}
+
+.w3-padding-right {
+    padding-right: 16px !important
+}
+
+.w3-row-padding, .w3-row-padding .w3-half, .w3-row-padding .w3-third, .w3-row-padding .w3-twothird, .w3-row-padding .w3-quarter,
+.w3-row-padding .w3-col {
+    padding: 1px 8px
+}
+
+/* CONTAINERS */
+.w3-container {
+    padding: 1px 16px
+}
+
+.w3-example {
+    background-color: #f1f1f1;
+    padding: 1px 16px 16px 16px
+}
+
+.w3-code {
+    font-family: Consolas, "courier new";
+    font-size: 16px;
+    line-height: 1.4;
+    width: auto;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-left: 4px solid #009688;
+    word-wrap: break-word
+}
+
+/* CARDS */
+.w3-card {
+    border: 1px solid #ccc
+}
+
+.w3-card-2, .w3-example {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
+}
+
+.w3-card-4 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important
+}
+
+.w3-card-8 {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important
+}
+
+.w3-card-12 {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19) !important
+}
+
+.w3-card-16 {
+    box-shadow: 0 16px 24px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21) !important
+}
+
+.w3-card-24 {
+    box-shadow: 0 24px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22) !important
+}
+
+/* ANIMATION */
+.w3-animate-opacity {
+    -webkit-animation-name: opac;
+    -webkit-animation-duration: 4s;
+    animation-name: opac;
+    animation-duration: 4s
+}
+
+@-webkit-keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+/* TOP */
+.w3-animate-top {
+    position: relative;
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* LEFT */
+.w3-animate-left {
+    -webkit-animation-name: animateleft;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animateleft;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 0.9
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 0.9
+    }
+}
+
+/* RIGHT */
+.w3-animate-right {
+    -webkit-animation-name: animateright;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animateright;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 0.9
+    }
+}
+
+@keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 0.9
+    }
+}
+
+/* BOTTOM */
+.w3-animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatebottom;
+    animation-duration: 0.4s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0px;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+/* COLORS */
+.w3-text-amber {
+    color: #ffc107 !important
+}
+
+.w3-amber {
+    color: #000 !important;
+    background-color: #ffc107 !important
+}
+
+.w3-text-blue {
+    color: #2196F3 !important
+}
+
+.w3-blue {
+    color: #fff !important;
+    background-color: #2196F3 !important
+}
+
+.w3-text-light-blue {
+    color: #03a9f4 !important
+}
+
+.w3-light-blue {
+    color: #000 !important;
+    background-color: #03a9f4 !important
+}
+
+.w3-text-brown {
+    color: #795548 !important
+}
+
+.w3-brown {
+    color: #fff !important;
+    background-color: #795548 !important
+}
+
+.w3-text-cyan {
+    color: #00bcd4 !important
+}
+
+.w3-cyan {
+    color: #000 !important;
+    background-color: #00bcd4 !important
+}
+
+.w3-text-blue-grey {
+    color: #607d8b !important
+}
+
+.w3-blue-grey {
+    color: #fff !important;
+    background-color: #607d8b !important
+}
+
+.w3-text-green {
+    color: #4CAF50 !important
+}
+
+.w3-green {
+    color: #fff !important;
+    background-color: #4CAF50 !important
+}
+
+.w3-text-light-green {
+    color: #8bc34a !important
+}
+
+.w3-light-green {
+    color: #000 !important;
+    background-color: #8bc34a !important
+}
+
+.w3-text-indigo {
+    color: #3f51b5 !important
+}
+
+.w3-indigo {
+    color: #fff !important;
+    background-color: #3f51b5 !important
+}
+
+.w3-text-khaki {
+    color: #b4aa50 !important
+}
+
+.w3-khaki {
+    color: #000 !important;
+    background-color: #f0e68c !important
+}
+
+.w3-text-lime {
+    color: #cddc39 !important
+}
+
+.w3-lime {
+    color: #000 !important;
+    background-color: #cddc39 !important
+}
+
+.w3-text-orange {
+    color: #ff9800 !important
+}
+
+.w3-orange {
+    color: #000 !important;
+    background-color: #ff9800 !important
+}
+
+.w3-text-deep-orange {
+    color: #ff5722 !important
+}
+
+.w3-deep-orange {
+    color: #fff !important;
+    background-color: #ff5722 !important
+}
+
+.w3-text-pink {
+    color: #e91e63 !important
+}
+
+.w3-pink {
+    color: #fff !important;
+    background-color: #e91e63 !important
+}
+
+.w3-text-purple {
+    color: #9c27b0 !important
+}
+
+.w3-purple {
+    color: #fff !important;
+    background-color: #9c27b0 !important
+}
+
+.w3-text-deep-purple {
+    color: #673ab7 !important
+}
+
+.w3-deep-purple {
+    color: #fff !important;
+    background-color: #673ab7 !important
+}
+
+.w3-text-red {
+    color: #F44336 !important
+}
+
+.w3-red {
+    color: #fff !important;
+    background-color: #F44336 !important
+}
+
+.w3-text-teal {
+    color: #009688 !important
+}
+
+.w3-teal {
+    color: #fff !important;
+    background-color: #009688 !important
+}
+
+.w3-text-yellow {
+    color: #d2be0e !important
+}
+
+.w3-yellow {
+    color: #000 !important;
+    background-color: #ffeb3b !important
+}
+
+.w3-text-white {
+    color: #fff !important
+}
+
+.w3-white {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.w3-text-black {
+    color: #000 !important
+}
+
+.w3-black {
+    color: #fff !important;
+    background-color: #000 !important
+}
+
+.w3-text-grey {
+    color: #757575 !important
+}
+
+.w3-grey {
+    color: #000 !important;
+    background-color: #9e9e9e !important
+}
+
+.w3-text-light-grey {
+    color: #f1f1f1 !important
+}
+
+.w3-light-grey {
+    color: #000;
+    background-color: #f1f1f1 !important
+}
+
+.w3-text-dark-grey {
+    color: #3a3a3a !important
+}
+
+.w3-dark-grey {
+    color: white;
+    background-color: #616161 !important
+}
+
+.w3-text-white-opacity {
+    color: rgba(255, 255, 255, 0.65) !important
+}
+
+.w3-text-black-opacity {
+    color: rgba(0, 0, 0, 0.60) !important
+}
+        div {
+            margin: 16px;
+            padding: 16px;
             text-indent: 32px;
-            /*margin: 32px;*/
+            
         }
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: underline;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        a:active {
+            text-decoration: underline;
+        }
+        
     </style>
 </head>
+<article class="w3-content" style="max-width:600px">
+    <header class="w3-container w3-orange w3-center">
+        <h1>第五讲 动态平衡系统</h1>
+    </header>
+    <div class="w3-card">
+        <p>中医最大的特点，就是把人体当作动态平衡系统来对待。这是中医和其他医学，特别是西医最大的不同。</p>
+    </div>
+    <div class="w3-card">
+        <p>什么是动态平衡系统呢？就是能够在一定范围内维持自身稳定的系统。</p>
+    </div>
+    <div class="w3-card">
+        <p>凡是能够在这个世界上存在一段时间的事物，都必须能够在一定范围内维持自身的稳定，否则它就不能在这个世界存在一段时间，会很快地消失。比如：元素周期表上现在有 108 位元素，后面还有没有新的元素呢？从道理上说，肯定是有的。因为一定的质子和一定的中子结合就可以成为一个新的原子核，新的元素。但是这么多年过去了，现代的科技手段比居里夫人发现镭元素时候不知道要先进多少倍，为什么仍然没有人发现 109 号元素呢？因为 108 位元素后面的元素没有保持自身稳定的能力，一会儿就放射掉了，根本就不能在这个世界上存在多久。</p>
+    </div>
+    <div class="w3-card">
+        <p>能够自我维持稳定，说明系统内部有自我调节的机制。因为有自我调节机制，所以对外界的刺激都会做出相应的调节反应。外界针对动态平衡系统的所有行为，都会得到一个相反的结果。比如，你想让它向下，给它一个向下的力量，系统为了维护自身的平衡，就会自动产生一个向上的力量来对抗这个向下的力量，结果等外力撤掉以后，它不仅不向下，反倒向上了。这是动态平衡系统的最根本的特性，认识到这一点非常重要。</p>
+    </div>
+    <div class="w3-card">
+        <p>我对动态平衡系统的认识最早来自太极拳。大约是在大学二年级的时候，我翻阅一本陈式太极拳的书。看到一个动作的讲解，说两个胳膊先压向对方，然后猛力回带，对方就倒了，我当时一下子就想通了很多问题。因为对方是一个活人，他有维护自身平衡的意识，你先向里压他，他必然用力向外反抗，以保持自身平衡，这样你再突然顺着他反抗的力量往回拉他，他肯定就倒了。这就是中华武术和西方拳击在技术理念上的区别。西方拳击把对手都看成是沙袋，拳头直接打，力大拳快就赢了。中华武术把对手看成一个动态平衡系统，充分利用对手自己的力量来把对手打倒。</p>
+    </div>
+    <div class="w3-card">
+        <p>“将欲取之，必先予之”，老子的这句话大家肯定都听说过，但并不是所有人都能懂老子为什么要这样说。老子作为中华传统文化经典，流传几千年，大家都说得习惯了，成了顺口溜，也就懒得去思考其中的道理了。很多学太极拳的人也不一定明白为什么行拳的时候总要欲左先右，欲上先下，拐个弯来行拳。祖祖辈辈都这么教，大家都这么学，所以后面的学习者也跟着这么做，并不去思考其中的道理。理解了动态平衡系统的特性以后，这其中所蕴含的道理就容易理解了。之所以要这么反着来做，就是因为我们面对的不是一个死靶子，而是一个动态平衡系统，它具有自我调节的机制，如果你想它往上，你直接给它一个向上的力量，它就会自动产生一个向下的力量来抵抗你的力量，导致得到的结果与你的实际想法完全相反。把这个道理想清楚了，才是真正理解了先哲的本意。学习中医经典，也要想想先哲为什么要这么说？他的道理在哪里？不能只是死记硬背，把经典当教条。习惯是最可怕的力量，让人见怪不怪，不去深究，最后和大道越离越远。</p>
+    </div>
+    <div class="w3-card">
+        <p>人体就是一个动态平衡系统，要调节人体，必须按照动态平衡系统的规律来进行，而不能用简单的直线思维来处理。如果把人体当做一个简单的机械系统来对待，不仅不能真正地解决问题，甚至会给身体带来伤害。</p>
+    </div>
+    <div class="w3-card">
+        <p>比如，年纪大了很多人会血压升高，为什么呢？西医解释说，血压升高，不外乎三个问题：一，心脏收缩力加强；二，血管管腔变窄，因为血管收缩或者管壁粥样斑块；三，血容量变大。所以降压药也就是从这三个方向来降压：抑制心脏、扩张血管、利尿减少血容量。</p>
+    </div>
+    <div class="w3-card">
+        <p>大家想想，年轻时候，心肌强壮，为什么那个时候心脏收缩力不嫌大，人老了，心肌老化了，反倒嫌心肌收缩力大了？</p>
+    </div>
+    <div class="w3-card">
+        <p>年轻的时候，血管括约肌更有弹性，为什么那个时候收缩不过度，人老了，血管括约肌都松弛了，血管收缩反而过度了？血管内壁形成了粥样斑块，的确可以使所处位置的血管官腔变窄，但是对整个血管系统的总容积究竟有多大影响，也还没有定论。而且很多高血压病人在没有动脉粥样硬化之前已经血压很高了。</p>
+    </div>
+    <div class="w3-card">
+        <p>年轻人机体内水分丰富，那时候血容量不大，现在老了血容量反倒多了，这不是很奇怪的事情吗？如果说老年人干瘪的皮肤还嫌体内水分多，需要利尿剂来利尿，那么，那些年轻的女性每天都补水岂不是血压更高？</p>
+    </div>
+    <div class="w3-card">
+        <p>这样一步步追问下来，你就很容易发现西医的三种解释血压升高的方法都不是老年人血压升高的真正原因。西医的三种降压方法并非解决导致老年人血压升高的真正原因，都是看到血压升高，直接用外力来降低血压，是直线思维的产物，会引发机体的反弹。</p>
+    </div>
+    <div class="w3-card">
+        <p>人体必须维持一定的血压以保证全身的各个部分都能从心脏获得足够的血液。血压能在一定的范围之内保持稳定，说明人体自身有血压调节的机制，会根据人体供血需要来调节血压。当血压低不足以供应全身的血液时，机体的升压机制能够自我升高血压；当血压高了全身血液供应过量时，机体的降压机制又能够自我降低血压。</p>
+    </div>
+    <div class="w3-card">
+        <p>年轻的时候气血顺畅，身体各个部位的组织很容易就能得到充足的血液，心肌根本无需努力地收缩泵血，心肌虽然很强壮，表现出来的收缩力也很大。老年人之所以会血压升高，是因为机体某部分组织无法正常获得充足的血液，为了保证这部分机体组织的血液供应，机体的血压调节机制就会让心脏努力泵血，心肌虽然老化，但是表现出来的收缩力比年轻时候还大，血压随之升高。它的好处在于让机体各部分组织获得充分的血液供应，它的弊端在于心脏这种超负荷的工作到了一定的程度以后，一方面会给心肌自身带来损伤，另一方面如果血管承受不了高压就有爆裂出血的危险。</p>
+    </div>
+    <div class="w3-card">
+        <p>现在大家都只看到高血压的危害，通过服用降压药直接降低血压。这种不以恢复缺血组织的血液供应为目标的降压方法，会让机体的升压机制更加亢进，最后只有两种结果：一，药物无法控制血压，需要不断地加大降压药的量；二，血压被药物控制住，组织缺血越来越严重。</p>
+    </div>
+    <div class="w3-card">
+        <p>所以，高血压的正确治疗方法是通过辨证论治，找到是什么原因导致的机体哪部分缺血，恢复缺血组织的血液供应的顺畅，机体自身的血压调节系统自然就不会让心脏努力泵血，血压也自然恢复正常。</p>
+    </div>
+    <div class="w3-card">
+        <p>血糖也是这么回事。不从源头上解决导致 2 型糖尿病人血糖升高的真正原因，只是看到血糖值升高就用外力直接降低血糖，也会引发机体的反弹。</p>
+    </div>
+    <div class="w3-card">
+        <p>人体要维持一定的血糖量以保证机体组织糖分的供应，不能太高，也不能太低，必须维持在一定的范围内，说明人体自身有血糖调节机制。</p>
+    </div>
+    <div class="w3-card">
+        <p>2 型糖尿病人可以分为两个部分：一部分 2 型糖尿病人完全是因为摄入营养过多，机体消耗少，营养过剩，停留在血液里，血液中糖、脂等成分的含量都比正常人高。这类 2 型糖尿病人一般都非常强壮，胃口好，食量大，运动少，纯属营养过剩，只要控制好饮食，多运动，血糖值就能逐渐恢复正常。</p>
+    </div>
+    <div class="w3-card">
+        <p>还有一部分 2 型糖尿病人，并不强壮，饮食也不多，但是血糖高。这部分 2 型糖尿病人是因为机体的某部分组织不能得到足够的血糖供应，机体自身的血糖机制发挥作用，以保证这部分组织能够得到正常的血糖供应，于是血糖值升高。直接降血糖，只能导致病人机体自身的升血糖机制更加亢进，降糖药要想维持正常的血糖值必须不断加量。如果能够解决部分组织不能得到足够的血糖供应的问题，人体的血糖值在正常在正常范围内就能保证全身的血糖供应，病人的血糖自然就恢复正常了。</p>
+    </div>
+    <div class="w3-card">
+        <p>人体是一个动态平衡系统，不能用直线思维来解决动态平衡系统的问题，一定要按照动态平衡系统的规律来，一定要按照动态平衡对待人体，系统的规律来对待人体。只有这样才能顺应生命的规律，才不会损伤机体，否则，所采取的治病手段不但治不好病，反倒成了导致新的疾病的病因。</p>
+    </div>
+    <div class="w3-card">
+        <p>“动态平衡系统”这个名词来自西方科学，中医并没有“动态平衡系统”的名称，西医的生理学近年来倒是在教材上提到了人体是一个动态平衡系统，那为什么我还说把人体当做“动态平衡系统”来对待是中医学的特色？这是因为中医有非常完善的有关动态平衡系统的理论来指导医疗实践，按照动态平衡系统的规律创造了很多解决人体健康问题的医疗方案，这类方案看上去与所要达到的目的相反却能更好地达到目的。如果不能做到这一点，依然直线思维地处理有关机体的问题，即使提出了一百个名词，也不能说他对此有所认识。</p>
+    </div>
+    <div class="w3-card">
+        <p>指导中医进行医疗实践的理论就是阴阳五行学说。阴阳五行学说的本质就是描述动态平衡系统运行规律的理论。阴阳五行学说是中医的理论核心。无论中国古代的先人有多少医学实践，在没有和阴阳五行学说结合以前，就没有形成真正的中医理论。</p>
+    </div>
 
-  <h1>第五讲 动态平衡系统</h1>
-  <p>中医最大的特点，就是把人体当作动态平衡系统来对待。这是中医和其他医学，特别是西医最大的不同。</p>
-  <p>什么是动态平衡系统呢？就是能够在一定范围内维持自身稳定的系统。</p>
-  <p>凡是能够在这个世界上存在一段时间的事物，都必须能够在一定范围内维持自身的稳定，否则它就不能在这个世界存在一段时间，会很快地消失。比如：元素周期表上现在有 108 位元素，后面还有没有新的元素呢？从道理上说，肯定是有的。因为一定的质子和一定的中子结合就可以成为一个新的原子核，新的元素。但是这么多年过去了，现代的科技手段比居里夫人发现镭元素时候不知道要先进多少倍，为什么仍然没有人发现 109 号元素呢？因为 108 位元素后面的元素没有保持自身稳定的能力，一会儿就放射掉了，根本就不能在这个世界上存在多久。</p>
-  <p>能够自我维持稳定，说明系统内部有自我调节的机制。因为有自我调节机制，所以对外界的刺激都会做出相应的调节反应。外界针对动态平衡系统的所有行为，都会得到一个相反的结果。比如，你想让它向下，给它一个向下的力量，系统为了维护自身的平衡，就会自动产生一个向上的力量来对抗这个向下的力量，结果等外力撤掉以后，它不仅不向下，反倒向上了。这是动态平衡系统的最根本的特性，认识到这一点非常重要。</p>
-  <p>我对动态平衡系统的认识最早来自太极拳。大约是在大学二年级的时候，我翻阅一本陈式太极拳的书。看到一个动作的讲解，说两个胳膊先压向对方，然后猛力回带，对方就倒了，我当时一下子就想通了很多问题。因为对方是一个活人，他有维护自身平衡的意识，你先向里压他，他必然用力向外反抗，以保持自身平衡，这样你再突然顺着他反抗的力量往回拉他，他肯定就倒了。这就是中华武术和西方拳击在技术理念上的区别。西方拳击把对手都看成是沙袋，拳头直接打，力大拳快就赢了。中华武术把对手看成一个动态平衡系统，充分利用对手自己的力量来把对手打倒。</p>
-  <p>面对一个动态平衡系统，你不能用直线思维，不能想它向上，你就用一个向上的力去推它，这样的直线思维往往让你得到的是相反的结果。</p>
-  <p>“将欲取之，必先予之”，老子的这句话大家肯定都听说过，但并不是所有人都能懂老子为什么要这样说。老子作为中华传统文化经典，流传几千年，大家都说得习惯了，成了顺口溜，也就懒得去思考其中的道理了。很多学太极拳的人也不一定明白为什么行拳的时候总要欲左先右，欲上先下，拐个弯来行拳。祖祖辈辈都这么教，大家都这么学，所以后面的学习者也跟着这么做，并不去思考其中的道理。理解了动态平衡系统的特性以后，这其中所蕴含的道理就容易理解了。之所以要这么反着来做，就是因为我们面对的不是一个死靶子，而是一个动态平衡系统，它具有自我调节的机制，如果你想它往上，你直接给它一个向上的力量，它就会自动产生一个向下的力量来抵抗你的力量，导致得到的结果与你的实际想法完全相反。把这个道理想清楚了，才是真正理解了先哲的本意。学习中医经典，也要想想先哲为什么要这么说？他的道理在哪里？不能只是死记硬背，把经典当教条。习惯是最可怕的力量，让人见怪不怪，不去深究，最后和大道越离越远。</p>
-  <p>人体就是一个动态平衡系统，要调节人体，必须按照动态平衡系统的规律来进行，而不能用简单的直线思维来处理。如果把人体当做一个简单的机械系统来对待，不仅不能真正地解决问题，甚至会给身体带来伤害。</p>
-  <p>比如，年纪大了很多人会血压升高，为什么呢？西医解释说，血压升高，不外乎三个问题：一，心脏收缩力加强；二，血管管腔变窄，因为血管收缩或者管壁粥样斑块；三，血容量变大。所以降压药也就是从这三个方向来降压：抑制心脏、扩张血管、利尿减少血容量。</p>
-  <p>大家想想，年轻时候，心肌强壮，为什么那个时候心脏收缩力不嫌大，人老了，心肌老化了，反倒嫌心肌收缩力大了？</p>
-  <p>年轻的时候，血管括约肌更有弹性，为什么那个时候收缩不过度，人老了，血管括约肌都松弛了，血管收缩反而过度了？血管内壁形成了粥样斑块，的确可以使所处位置的血管官腔变窄，但是对整个血管系统的总容积究竟有多大影响，也还没有定论。而且很多高血压病人在没有动脉粥样硬化之前已经血压很高了。</p>
-  <p>年轻人机体内水分丰富，那时候血容量不大，现在老了血容量反倒多了，这不是很奇怪的事情吗？如果说老年人干瘪的皮肤还嫌体内水分多，需要利尿剂来利尿，那么，那些年轻的女性每天都补水岂不是血压更高？</p>
-  <p>这样一步步追问下来，你就很容易发现西医的三种解释血压升高的方法都不是老年人血压升高的真正原因。西医的三种降压方法并非解决导致老年人血压升高的真正原因，都是看到血压升高，直接用外力来降低血压，是直线思维的产物，会引发机体的反弹。</p>
-  <p>人体必须维持一定的血压以保证全身的各个部分都能从心脏获得足够的血液。血压能在一定的范围之内保持稳定，说明人体自身有血压调节的机制，会根据人体供血需要来调节血压。当血压低不足以供应全身的血液时，机体的升压机制能够自我升高血压；当血压高了全身血液供应过量时，机体的降压机制又能够自我降低血压。</p>
-  <p>年轻的时候气血顺畅，身体各个部位的组织很容易就能得到充足的血液，心肌根本无需努力地收缩泵血，心肌虽然很强壮，表现出来的收缩力也很大。老年人之所以会血压升高，是因为机体某部分组织无法正常获得充足的血液，为了保证这部分机体组织的血液供应，机体的血压调节机制就会让心脏努力泵血，心肌虽然老化，但是表现出来的收缩力比年轻时候还大，血压随之升高。它的好处在于让机体各部分组织获得充分的血液供应，它的弊端在于心脏这种超负荷的工作到了一定的程度以后，一方面会给心肌自身带来损伤，另一方面如果血管承受不了高压就有爆裂出血的危险。</p>
-  <p>现在大家都只看到高血压的危害，通过服用降压药直接降低血压。这种不以恢复缺血组织的血液供应为目标的降压方法，会让机体的升压机制更加亢进，最后只有两种结果：一，药物无法控制血压，需要不断地加大降压药的量；二，血压被药物控制住，组织缺血越来越严重。</p>
-  <p>所以，高血压的正确治疗方法是通过辨证论治，找到是什么原因导致的机体哪部分缺血，恢复缺血组织的血液供应的顺畅，机体自身的血压调节系统自然就不会让心脏努力泵血，血压也自然恢复正常。</p>
-  <p>血糖也是这么回事。不从源头上解决导致 2 型糖尿病人血糖升高的真正原因，只是看到血糖值升高就用外力直接降低血糖，也会引发机体的反弹。</p>
-  <p>人体要维持一定的血糖量以保证机体组织糖分的供应，不能太高，也不能太低，必须维持在一定的范围内，说明人体自身有血糖调节机制。</p>
-  <p>2 型糖尿病人可以分为两个部分：一部分 2 型糖尿病人完全是因为摄入营养过多，机体消耗少，营养过剩，停留在血液里，血液中糖、脂等成分的含量都比正常人高。这类 2 型糖尿病人一般都非常强壮，胃口好，食量大，运动少，纯属营养过剩，只要控制好饮食，多运动，血糖值就能逐渐恢复正常。</p>
-  <p>还有一部分 2 型糖尿病人，并不强壮，饮食也不多，但是血糖高。这部分 2 型糖尿病人是因为机体的某部分组织不能得到足够的血糖供应，机体自身的血糖机制发挥作用，以保证这部分组织能够得到正常的血糖供应，于是血糖值升高。直接降血糖，只能导致病人机体自身的升血糖机制更加亢进，降糖药要想维持正常的血糖值必须不断加量。如果能够解决部分组织不能得到足够的血糖供应的问题，人体的血糖值在正常在正常范围内就能保证全身的血糖供应，病人的血糖自然就恢复正常了。</p>
-  <p>人体是一个动态平衡系统，不能用直线思维来解决动态平衡系统的问题，一定要按照动态平衡系统的规律来，一定要按照动态平衡对待人体，系统的规律来对待人体。只有这样才能顺应生命的规律，才不会损伤机体，否则，所采取的治病手段不但治不好病，反倒成了导致新的疾病的病因。</p>
-  <p>“动态平衡系统”这个名词来自西方科学，中医并没有“动态平衡系统”的名称，西医的生理学近年来倒是在教材上提到了人体是一个动态平衡系统，那为什么我还说把人体当做“动态平衡系统”来对待是中医学的特色？这是因为中医有非常完善的有关动态平衡系统的理论来指导医疗实践，按照动态平衡系统的规律创造了很多解决人体健康问题的医疗方案，这类方案看上去与所要达到的目的相反却能更好地达到目的。如果不能做到这一点，依然直线思维地处理有关机体的问题，即使提出了一百个名词，也不能说他对此有所认识。</p>
-  <p>指导中医进行医疗实践的理论就是阴阳五行学说。阴阳五行学说的本质就是描述动态平衡系统运行规律的理论。阴阳五行学说是中医的理论核心。无论中国古代的先人有多少医学实践，在没有和阴阳五行学说结合以前，就没有形成真正的中医理论。</p>
-  
-  <p>转自《什么是中医 关于动态平衡系统的医学》- 邹时祯 著</p>
-  <p>邹时祯 新浪博客：<a href="http://blog.sina.com.cn/u/1173935352">http://blog.sina.com.cn/u/1173935352</a><br/>
-     &nbsp;&nbsp;邹时祯 新浪微博：<a href="http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1">http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1</a>
-
-  </p>
-
-
-
-
+    <footer class="w3-container w3-orange">
+    <!--<ul class="">-->
+        <!--<li>转自《什么是中医 关于动态平衡系统的医学》 邹时祯 著</li>-->
+        <!--<li><a href="http://blog.sina.com.cn/u/1173935352">http://blog.sina.com.cn/u/1173935352</a></li>-->
+        <!--<li>邹时祯 新浪微博: <a href="http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1">http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1</a></li>-->
+    <!--</ul>-->
+    <p>转自《什么是中医 关于动态平衡系统的医学》 邹时祯 著</p>
+    <p>邹时祯 新浪博客: <a href="http://blog.sina.com.cn/u/1173935352">http://blog.sina.com.cn/u/1173935352</a>.</p>
+    <p>邹时祯 新浪微博: <a href="http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1">http://www.weibo.com/u/1173935352?topnav=1&wvr=6&topsug=1</a>.</p>
+    </footer>
+</article>
 </body>
 </html>
